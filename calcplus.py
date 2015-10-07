@@ -7,13 +7,12 @@ import calcoohija
 
 if __name__ == "__main__":
     calchija = calcoohija.CalculadoraHija()
-    File = open('prueba.csv', 'r')
-    Lista = File.readlines() #Devuelve una lista con cada linea del fichero#
-    
+    File = open(sys.argv[1], 'r')
+    Lista = File.readlines()  # Devuelve una lista con cada linea del fichero
+
     for linea in Lista:
         ListaNumeros = linea.split(",")
         Operacion = ListaNumeros.pop(0)
-
 
         if Operacion == 'suma':
             suma = calchija.plus(int(ListaNumeros[0]), int(ListaNumeros[1]))
@@ -22,7 +21,7 @@ if __name__ == "__main__":
             print(suma)
 
         elif Operacion == 'resta':
-            resta = calchija.minus(int(ListaNumeros[0]), int(ListaNumeros[1]))        
+            resta = calchija.minus(int(ListaNumeros[0]), int(ListaNumeros[1]))
             for numero in ListaNumeros[2:]:
                 resta = calchija.minus(resta, int(numero))
             print(resta)
@@ -38,5 +37,3 @@ if __name__ == "__main__":
             for numero in ListaNumeros[2:]:
                 div = calchija.div(div, int(numero))
                 print(div)
-
-
